@@ -9,6 +9,10 @@ export async function main(event, context, callback) {
 
   // Load our secret key from the  environment variables
   const stripe = stripePackage(process.env.stripeSecretKey);
+  if (process.env.http_proxy) {
+    const ProxyAgent = require('https-proxy-agent');
+    stripe.setHttpAgent(new ProxyAgent(process.env.http_proxy));
+  }
   try {
     await stripe.charges.create({
       source,
