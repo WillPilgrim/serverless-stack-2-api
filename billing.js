@@ -9,7 +9,6 @@ export async function main(event, context, callback) {
 
   // Load our secret key from the  environment variables
   const stripe = stripePackage(process.env.stripeSecretKey);
-
   try {
     await stripe.charges.create({
       source,
