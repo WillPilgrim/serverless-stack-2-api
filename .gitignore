@@ -50,3 +50,6 @@ env.yml
 
 # Jetbrains IDEs
 .idea
+
+# list of command line scripts
+commands.txt
