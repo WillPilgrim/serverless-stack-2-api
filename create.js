@@ -14,7 +14,7 @@ export async function main(event, context, callback) {
       createdAt: Date.now()
     }
   };
-  console.log('#### ', process.env.tablename,' ####');
+  console.log('#### ', process.env.tableName,' ####');
 
   try {
     await dynamoDbLib.call("put", params);
