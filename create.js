@@ -17,9 +17,14 @@ export async function main(event, context, callback) {
   console.log('#### ', process.env.tableName,' ####');
 
   try {
+    console.log('#### before await dynamoDbLib ', params,' ####');
     await dynamoDbLib.call("put", params);
+    console.log('#### after await dynamoDbLib ', params,' ####');
     callback(null, success(params.Item));
+    console.log('#### callback success ', params.Item,' ####');
   } catch (e) {
+    console.log('#### before callback failure ####');
     callback(null, failure({ status: false }));
+    console.log('#### after callback failure ####');
   }
 }
